@@ -28,11 +28,11 @@ void GameObject::Render(){
 
 bool GameObject::Movement(){
     yacc = 5;
-    hidScanInput(); //Check Inputs
-    u32 kDownAbb = hidKeysDown(CONTROLLER_P1_AUTO); //Check for buttons pressed down by player 1
+    hidScanInput();
+    u32 kDownAbb = hidKeysDown(CONTROLLER_P1_AUTO);
     u32 kUpAbb = hidKeysUp(CONTROLLER_P1_AUTO);
 
-    if (kDownAbb & KEY_PLUS){ //Check if plus has been pressed
+    if (kDownAbb & KEY_PLUS){
         return false;
     }
 

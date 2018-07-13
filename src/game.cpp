@@ -4,8 +4,6 @@
 #include "map.h"
 #include <string.h>
 #include <stdio.h>
-//memes because it wont make for some reason
-int* memes;
 GameObject* player;
 Map* map;
 SDL_Renderer* Game::renderer = nullptr;
@@ -18,15 +16,15 @@ Game::~Game(){
 }
 
 void Game::init(const char *title, int xpos, int ypos, int width, int height, bool flags){
-    if (SDL_Init(SDL_INIT_EVERYTHING) == 0){ //Check if SDL can initialise
+    if (SDL_Init(SDL_INIT_EVERYTHING) == 0){
         printf("Failed to initialise SDL\n");
         isRunning = false;
     } else {
-        window = SDL_CreateWindow(title, xpos, ypos, width, height, flags); //Create the SDL window
+        window = SDL_CreateWindow(title, xpos, ypos, width, height, flags);
         if (window == 0){
             printf("Failed to make window\n");
         }
-        renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_SOFTWARE); //Create renderer
+        renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_SOFTWARE);
         if (renderer == 0){
             printf("Failed to make renderer\n");
         } else {
@@ -50,7 +48,6 @@ void Game::update(){
 
 void Game::render(){
     SDL_RenderClear(renderer);
-    //Add stuff to renderer
     map->DrawMap();
     player->Render();
     SDL_RenderPresent(renderer);

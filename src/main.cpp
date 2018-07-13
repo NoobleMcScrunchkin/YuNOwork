@@ -10,16 +10,16 @@ int main(int argc, char **argv)
 	Uint32 frameStart;
 	int frameTime;
 	romfsInit();
-	game = new Game(); //Make a new instance of the Game
-	game->init(nullptr, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1280, 720, SDL_WINDOW_FULLSCREEN_DESKTOP); //Initialise the window and renderer
+	game = new Game();
+	game->init(nullptr, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1280, 720, SDL_WINDOW_FULLSCREEN_DESKTOP);
 
 	while (appletMainLoop()){
 
 		frameStart = SDL_GetTicks();
 
-		game->handleEvents(); //Listen for inputs
-		game->update(); //update objects
-		game->render(); //render objects
+		game->handleEvents();
+		game->update();
+		game->render();
 
 		frameTime = SDL_GetTicks() - frameStart;
 
@@ -33,6 +33,6 @@ int main(int argc, char **argv)
 
 	}
 
-	game->clean(); //cleanup
+	game->clean();
 	return 0;
 }
